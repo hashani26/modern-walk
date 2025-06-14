@@ -1,5 +1,4 @@
 import { Roboto } from 'next/font/google'
-import Header from '@/app/components/Header'
 import './globals.css'
 
 const robotoSans = Roboto({
@@ -14,10 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoSans.variable} antialiased`}>
-        <Header />
-        {children}
-      </body>
+      <body className={`${robotoSans.variable} antialiased`}>{children}</body>
     </html>
   )
 }
