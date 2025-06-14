@@ -7,7 +7,6 @@ import prettier from 'eslint-config-prettier'
 export default defineConfig([
   // TypeScript support
   ...tseslint.configs.recommendedTypeChecked,
-
   {
     files: ['**/*.{js,ts,jsx,tsx}'],
     languageOptions: {
