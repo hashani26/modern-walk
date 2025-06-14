@@ -1,25 +1,23 @@
-import { Roboto } from "next/font/google";
-import Header from "@/app/components/Header";
-import "./globals.css";
+import { Roboto } from 'next/font/google'
+import Header from '@/app/components/Header'
+import './globals.css'
 
 const robotoSans = Roboto({
-  variable: "--font-roboto-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-roboto-sans',
+  subsets: ['latin'],
+})
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${robotoSans.variable} antialiased`}
-      >
-        <Header/>
+      <body className={`${robotoSans.variable} antialiased`}>
+        <Header />
         {children}
       </body>
     </html>
-  );
+  )
 }
