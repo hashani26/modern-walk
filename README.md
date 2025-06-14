@@ -21,7 +21,7 @@ Install these extensions in VSCode
 - NextJs
 - TailwindCSS
 
-## Development Best Practices for Scalability and Maintainability\
+## Development Best Practices for Scalability and Maintainability
 
 **Typescript**
 identify code errors during compile time by ensuring type safety using static type checking
