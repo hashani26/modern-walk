@@ -34,6 +34,12 @@ ensure code formatting is consistent thorughout the coding lifecycle and among a
 
 These best practices are enforced through a custom vscode settings configuration shared across team members via SCM
 
+**husky**
+pre-commit hook is enabled to check and fix any linting and formatting issues to before entering shared code base
+
+**staging**
+Setup pre-production environment hosting to showcase/simulate the prototype to ensure stakeholder validation
+
 ## Performance Optimization
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load fonts.
