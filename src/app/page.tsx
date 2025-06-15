@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import CategorySection from '@/app/components/CategorySection'
-import { Categories } from '@/app/types'
+import { CategoryKey } from '@/app/types'
 import Link from 'next/link'
+import SectionTitle from '@/app/components/SectionTitle'
+import { categoryMap } from '@/app/lib'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -9,22 +11,15 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="p-10">
-      <section>
-        <h2 className="text-2xl font-semibold">Categories</h2>
-        <div className="grid h-[40vh] cursor-pointer grid-cols-1 gap-4 py-10 md:grid-cols-2">
-          {Object.values(Categories).map((category) => (
-            <CategorySection key={category} category={category}>
-              <Link
-                href={`${category === Categories.men ? '/mens-clothing' : '/womens-clothing'}`}
-              >
-                {category === Categories.men && "Men's Clothing"}
-                {category === Categories.women && "Women's Clothing"}
-              </Link>
-            </CategorySection>
-          ))}
-        </div>
-      </section>
-    </main>
+    <section>
+      <SectionTitle title="Categories" />
+      <div className="grid h-[40vh] cursor-pointer grid-cols-1 gap-4 py-10 md:grid-cols-2">
+        {Object.entries(categoryMap).map(([key, { label, path }]) => (
+          <CategorySection key={key} category={key as CategoryKey}>
+            <Link href={`/${path}`}>{label}</Link>
+          </CategorySection>
+        ))}
+      </div>
+    </section>
   )
 }

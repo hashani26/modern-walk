@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${robotoSans.variable} antialiased`}>
         <Header />
-        {children}
+        <main className="p-10">{children}</main>
       </body>
     </html>
   )
