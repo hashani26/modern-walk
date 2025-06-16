@@ -74,8 +74,13 @@ code quality checks and best practices are enforced during deployment
 
 ## Monitoring and Logging
 
-the project can be further extended for monitoring using logs, analytics etc.
+the project can be further extended for monitoring using logs, analytics, themes etc.
 
 ## Prototyping
 
-This project is setup
+This project is prototyped to
+
+- add incremental updates to the modern walk application
+- by a shared, distributed team and
+- automatically ship quality code to staging env
+- which then can be merged to a production env upon approval which is accessible bu end users
