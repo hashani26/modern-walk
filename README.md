@@ -4,6 +4,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+`git clone https://github.com/hashani26/modern-walk.git`
+
+`cd modern-walk`
+
+create .env file and clone .env.sample file
+
+`npm i`
+
 ```bash
 npm run dev
 ```
@@ -15,8 +23,6 @@ Install these extensions in VSCode
 
 - [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
-create .env
 
 ## Technologies Used
 
@@ -52,3 +58,10 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 auto caching prevents duplicate API requests using useQuery hook, thereby reduce load times, only re-renders a page if the background requests updates data which increases UI performance
 
 used nextjs dynamic() to lazily load smaller chunks of bundle on demand which improves initial bundle size and reduces initial load times
+
+## Deployment and Hosting
+
+Webapp can be viewed at [modern-walk staging](modern-walk-five.vercel.app) which is hosted using vercel
+
+whenever there is a PR to the master branch, an optimum build will be created\
+Deploying is automated via github actions configured in deploy.yml
