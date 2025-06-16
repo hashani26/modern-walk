@@ -1,7 +1,8 @@
 import { Roboto } from 'next/font/google'
-import Header from '@/app/components/Header'
+import Header from '@/components/Header'
 import type { Metadata } from 'next'
 import './globals.css'
+import QueryProvider from '../providers/QueryProvider'
 
 const robotoSans = Roboto({
   variable: '--font-roboto-sans',
@@ -24,8 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${robotoSans.variable} antialiased`}>
-        <Header />
-        <main className="p-10">{children}</main>
+        <QueryProvider>
+          <Header />
+          <main className="p-10">{children}</main>
+        </QueryProvider>
       </body>
     </html>
   )

@@ -1,4 +1,4 @@
-import { CategoryKey } from '@/app/types'
+import { CategoryKey } from '@/types'
 
 interface CategorySectionProps {
   category: CategoryKey

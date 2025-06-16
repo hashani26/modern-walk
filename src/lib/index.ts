@@ -1,4 +1,4 @@
-import type { CategoryKey, CategoryData } from '@/app/types'
+import type { CategoryKey, CategoryData } from '@/types'
 
 export const categoryMap: Record<CategoryKey, CategoryData> = {
   men: {

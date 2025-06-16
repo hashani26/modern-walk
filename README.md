@@ -16,6 +16,8 @@ Install these extensions in VSCode
 - [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
+create .env
+
 ## Technologies Used
 
 - NextJs
