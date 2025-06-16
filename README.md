@@ -22,6 +22,7 @@ create .env
 
 - NextJs
 - TailwindCSS
+- tanstack query (react-query)
 
 ## Development Best Practices for Scalability and Maintainability
 
@@ -42,6 +43,12 @@ pre-commit hook is enabled to check and fix any linting and formatting issues to
 **staging**
 Setup pre-production environment hosting to showcase/simulate the prototype to ensure stakeholder validation
 
+**tanstack query**
+
 ## Performance Optimization
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load fonts.
+
+auto caching prevents duplicate API requests using useQuery hook, thereby reduce load times, only re-renders a page if the background requests updates data which increases UI performance
+
+used nextjs dynamic() to lazily load smaller chunks of bundle on demand which improves initial bundle size and reduces initial load times
