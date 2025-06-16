@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
 
 :root {
   --background: #ffffff;
@@ -13,4 +12,14 @@
 
 body {
   font-family: var(--font-roboto-sans), sans-serif;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

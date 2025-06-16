@@ -4,6 +4,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+`git clone https://github.com/hashani26/modern-walk.git`
+
+`cd modern-walk`
+
+create .env file and clone .env.sample file
+
+`npm i`
+
 ```bash
 npm run dev
 ```
@@ -20,8 +28,9 @@ Install these extensions in VSCode
 
 - NextJs
 - TailwindCSS
+- tanstack query (react-query)
 
-## Development Best Practices for Scalability and Maintainability\
+## Development Best Practices for Scalability and Maintainability
 
 **Typescript**
 identify code errors during compile time by ensuring type safety using static type checking
@@ -40,6 +49,26 @@ pre-commit hook is enabled to check and fix any linting and formatting issues to
 **staging**
 Setup pre-production environment hosting to showcase/simulate the prototype to ensure stakeholder validation
 
+**tanstack query**
+
+**unit testing**
+unit testing with jestJs along with react-testing-library ensures code is tested for expected behaviour and good percentage of code coverage along with good test suits ensures code quality
+
 ## Performance Optimization
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load fonts.
+
+auto caching prevents duplicate API requests using useQuery hook, thereby reduce load times, only re-renders a page if the background requests updates data which increases UI performance
+
+used nextjs dynamic() to lazily load smaller chunks of bundle on demand which improves initial bundle size and reduces initial load times
+
+## Deployment and Hosting
+
+Webapp can be viewed at [modern-walk staging](modern-walk-five.vercel.app) which is hosted using vercel
+
+whenever there is a PR to the master branch, an optimum build will be created\
+Deploying is automated via github actions configured in deploy.yml
+
+## Monitoring and Logging
+
+the project can be further extended for monitoring using logs, analytics etc.
