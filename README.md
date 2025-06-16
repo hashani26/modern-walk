@@ -51,6 +51,9 @@ Setup pre-production environment hosting to showcase/simulate the prototype to e
 
 **tanstack query**
 
+**unit testing**
+unit testing with jestJs along with react-testing-library ensures code is tested for expected behaviour and good percentage of code coverage along with good test suits ensures code quality
+
 ## Performance Optimization
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load fonts.
@@ -65,3 +68,7 @@ Webapp can be viewed at [modern-walk staging](modern-walk-five.vercel.app) which
 
 whenever there is a PR to the master branch, an optimum build will be created\
 Deploying is automated via github actions configured in deploy.yml
+
+## Monitoring and Logging
+
+the project can be further extended for monitoring using logs, analytics etc.
