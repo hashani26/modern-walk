@@ -3,13 +3,11 @@ import { categoryMap } from '@/lib'
 import { findLabelByPath } from '@/utils'
 import ProductGrid from '@/components/ProductGrid'
 
-interface ProductCategoryProps {
-  params: {
-    category: string
-  }
-}
-
-export default function ProductCategory({ params }: ProductCategoryProps) {
+export default function ProductCategory({
+  params,
+}: {
+  params: { category: string }
+}) {
   const categoryPath = findLabelByPath(params.category, categoryMap)
 
   return (
