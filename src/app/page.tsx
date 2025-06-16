@@ -14,12 +14,10 @@ export default function Home() {
   return (
     <section>
       <SectionTitle title="Flash Sale" style="text-2xl" />
-
       <div className="grid grid-rows-1 gap-4">
         <Sale />
       </div>
       <SectionTitle title="Categories" style="text-2xl" />
-
       <div className="grid h-[40vh] cursor-pointer grid-cols-1 gap-4 py-10 md:grid-cols-2">
         {Object.entries(categoryMap).map(([key, { label, path }]) => (
           <CategorySection key={key} category={key as CategoryKey}>

@@ -1,20 +1,18 @@
 'use client'
 
 import { useRef } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { getProductsByCategory } from '@/services/productService'
-import { Product } from '@/types'
-import ProductCard from './ProductCard'
+import dynamic from 'next/dynamic'
+import SkeletonGrid from './SkeletonGrid'
+import { Skeleton } from './Skeleton'
+import ErrorSection from './ErrorSection'
+import NotFound from './Message'
+import { useFilteredProducts } from '@/hooks/useFilteredProducts'
+
+const ProductCard = dynamic(() => import('./ProductCard'))
 
 export default function Sale() {
-  const {
-    data: products,
-    isLoading,
-    isError,
-    error,
-  } = useQuery<Product[], Error>({
-    queryKey: ['products', 'category'],
-    queryFn: () => getProductsByCategory(),
+  const { filteredProducts, isLoading, isError, error } = useFilteredProducts({
+    filter: 'sale',
   })
 
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -28,35 +26,20 @@ export default function Sale() {
     }
   }
   if (isLoading) {
-    return <div>Loading...</div>
+    return (
+      <SkeletonGrid count={4}>
+        <Skeleton />
+      </SkeletonGrid>
+    )
   }
 
   if (isError) {
-    return <div>Error: {error.message}</div>
+    return <ErrorSection error={error} />
   }
 
-  function getSaleItems(products: Product[]): Product[] {
-    const { mens, womens } = products.reduce(
-      (acc, item) => {
-        if (item.category === "men's clothing") acc.mens.push(item)
-        else if (item.category === "women's clothing") acc.womens.push(item)
-        return acc
-      },
-      { mens: [] as Product[], womens: [] as Product[] }
-    )
-
-    const result: Product[] = []
-    const maxLength = Math.max(mens.length, womens.length)
-
-    for (let i = 0; i < maxLength; i++) {
-      if (i < mens.length) result.push(mens[i])
-      if (i < womens.length) result.push(womens[i])
-    }
-
-    return result
+  if (!filteredProducts || filteredProducts.length === 0) {
+    return <NotFound />
   }
-
-  const saleItems = getSaleItems(products)
 
   return (
     <section className="py-8">
@@ -71,7 +54,7 @@ export default function Sale() {
         ref={scrollContainerRef}
         className="hide-scrollbar flex w-[95vw] snap-x snap-mandatory space-x-4 overflow-x-auto scroll-smooth"
       >
-        {saleItems?.map((product) => (
+        {filteredProducts?.map((product) => (
           <div
             key={product.id}
             className="flex w-90 shrink-0 snap-start items-center justify-center rounded-lg bg-gray-200 text-xl text-black"

@@ -1,70 +1,40 @@
 'use client'
 
-import type { Product } from '@/types'
 import { Skeleton } from '@/components/Skeleton'
 import dynamic from 'next/dynamic'
-import { useQuery } from '@tanstack/react-query'
-import { getProductsByCategory } from '@/services/productService'
+import SkeletonGrid from './SkeletonGrid'
+import ErrorSection from './ErrorSection'
+import NotFound from './Message'
+import { useFilteredProducts } from '@/hooks/useFilteredProducts'
 
 interface ProductGridProps {
   category: string
 }
 
-const ProductGridSkeleton = ({ count = 8 }: { count?: number }) => (
-  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-    {Array.from({ length: count }).map((_, index) => (
-      <div key={index} className="flex flex-col space-y-3">
-        <Skeleton />
-      </div>
-    ))}
-  </div>
-)
-
-const ProductCard = dynamic(() => import('./ProductCard'), {
-  loading: () => <Skeleton />,
-  ssr: false, // Optional: disable SSR for performance
-})
+const ProductCard = dynamic(() => import('./ProductCard'))
 
 export default function ProductGrid({ category }: ProductGridProps) {
-  const {
-    data: products,
-    isLoading,
-    isError,
-    error,
-  } = useQuery<Product[], Error>({
-    queryKey: ['products', 'category', category],
-    queryFn: () => getProductsByCategory(),
+  const { filteredProducts, isLoading, isError, error } = useFilteredProducts({
+    filter: category,
   })
 
   if (isLoading) {
     return (
       <section className="py-8">
-        <ProductGridSkeleton />
+        <SkeletonGrid count={8}>
+          <Skeleton />
+        </SkeletonGrid>
       </section>
     )
   }
 
   if (isError) {
-    return (
-      <div className="flex min-h-[300px] flex-col items-center justify-center py-10 text-center">
-        <p className="text-lg text-red-600">
-          Error loading products: {error?.message}
-        </p>
-      </div>
-    )
+    return <ErrorSection error={error} />
   }
 
-  if (!products || products.length === 0) {
-    return (
-      <div className="flex min-h-[300px] flex-col items-center justify-center py-10 text-center">
-        <p className="text-lg">No products found. Please check back later.</p>
-      </div>
-    )
+  if (!filteredProducts || filteredProducts.length === 0) {
+    return <NotFound />
   }
-
-  const filteredProducts = products.filter(
-    (product) => product.category === category
-  )
 
   return (
     <section className="py-8">
