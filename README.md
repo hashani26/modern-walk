@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+Access staging at (Modern Walk Staging env)[https://modern-walk-five.vercel.app/]
+
 ## Application Local Setup and Getting Started
 
 First, run the development server:
