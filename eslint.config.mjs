@@ -3,7 +3,6 @@ import tseslint from 'typescript-eslint'
 import pluginReact from 'eslint-plugin-react'
 import pluginReactHooks from 'eslint-plugin-react-hooks'
 import prettier from 'eslint-config-prettier'
-import pluginNext from '@next/eslint-plugin-next'
 
 export default defineConfig([
   // TypeScript support
@@ -21,7 +20,6 @@ export default defineConfig([
     plugins: {
       react: pluginReact,
       'react-hooks': pluginReactHooks,
-      '@next/next': pluginNext,
     },
     settings: {
       react: {

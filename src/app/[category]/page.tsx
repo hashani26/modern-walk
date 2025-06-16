@@ -3,12 +3,15 @@ import { categoryMap } from '@/lib'
 import { findLabelByPath } from '@/utils'
 import ProductGrid from '@/components/ProductGrid'
 
-export default function ProductCategory({
+interface ProductCategoryPageProps {
+  params: Promise<{ category: string }>
+}
+
+export default async function ProductCategory({
   params,
-}: {
-  params: { category: string }
-}) {
-  const categoryPath = findLabelByPath(params.category, categoryMap)
+}: ProductCategoryPageProps) {
+  const { category } = await params
+  const categoryPath = findLabelByPath(category, categoryMap)
 
   return (
     <div>
