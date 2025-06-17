@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Access staging at (Modern Walk Staging env)[https://modern-walk-five.vercel.app/]
+Access staging at [https://modern-walk-five.vercel.app/](Modern Walk Staging env)
 
 ## Application Local Setup and Getting Started
 
@@ -70,7 +70,7 @@ used nextjs dynamic() to lazily load smaller chunks of bundle on demand which im
 
 ## Deployment and Hosting
 
-Webapp can be viewed at [modern-walk staging](modern-walk-five.vercel.app) which is hosted using vercel
+Webapp can be viewed at [[modern-walk staging](modern-walk-five.vercel.app)](https://modern-walk-five.vercel.app/) which is hosted using vercel
 
 whenever there is a PR to the master branch, an optimum build will be created\
 Deploying is automated via github actions configured in deploy.yml
