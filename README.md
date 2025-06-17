@@ -60,6 +60,10 @@ Accessibility best practices are initiated through aria lables and semantic comp
 
 Atomic design was used to structure components and SOLID principles are followed within each component in order to make the project scalable and maintainable
 
+The application is mobile responsive and compatible(ES5) across wide range of devices and browsers.
+
+All users are enforced to follow a template to commit code to ensure consistency and clear messaging
+
 ## Performance Optimization
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load fonts.
