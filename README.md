@@ -58,6 +58,8 @@ unit testing with jestJs along with react-testing-library ensures code is tested
 
 Accessibility best practices are initiated through aria lables and semantic components
 
+Atomic design was used to structure components and SOLID principles are followed within each component in order to make the project scalable and maintainable
+
 ## Performance Optimization
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load fonts.
